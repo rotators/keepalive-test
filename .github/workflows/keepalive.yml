@@ -1,0 +1,24 @@
+name: KeepAlive
+
+on:
+ schedule:
+ - cron: 0 0 1 * *
+
+defaults:
+ run:
+  shell: bash
+
+jobs:
+ KeepAlive:
+  runs-on: ubuntu-latest
+  steps:
+
+  - name: Self
+    run:  gh workflow enable keepalive.yml
+    env:
+     GH_TOKEN: ${{ secrets.ANTALASKAYA_TOKEN }}
+
+  - name: WorkflowTest
+    run:  gh workflow enable workflow-test.yml
+    env:
+     GH_TOKEN: ${{ secrets.ANTALASKAYA_TOKEN }}

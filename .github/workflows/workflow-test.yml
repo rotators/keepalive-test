@@ -1,0 +1,17 @@
+name: WorkflowTest
+
+on:
+ schedule:
+ - cron: 0 0 */2 * 5
+
+defaults:
+ run:
+  shell: bash
+
+jobs:
+ WorkflowTest:
+  runs-on: ubuntu-latest
+  steps:
+
+  - name: WorkflowTest
+    run:  echo "OK :)"
