@@ -2,7 +2,7 @@ name: WorkflowTest
 
 on:
  schedule:
- - cron: 0 0 */2 * 5
+ - cron: 0 1 */2 * 5
 
 defaults:
  run:
