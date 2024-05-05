@@ -11,14 +11,13 @@ defaults:
 jobs:
  KeepAlive:
   runs-on: ubuntu-latest
+  env:
+   GH_TOKEN: ${{ secrets.ANTALASKAYA_TOKEN }}
+
   steps:
 
   - name: Self
-    run:  gh workflow enable keepalive.yml
-    env:
-     GH_TOKEN: ${{ secrets.ANTALASKAYA_TOKEN }}
+    run:  gh workflow enable keepalive.yml --repo ${{ github.repository }}
 
   - name: WorkflowTest
-    run:  gh workflow enable workflow-test.yml
-    env:
-     GH_TOKEN: ${{ secrets.ANTALASKAYA_TOKEN }}
+    run:  gh workflow enable workflow-test.yml --repo ${{ github.repository }}
